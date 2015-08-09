@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import AIFlatSwitch
 
 class ViewController: UITableViewController {
 
@@ -122,12 +123,25 @@ class ViewController: UITableViewController {
         
         if(data.type == typeOfTodo.done)
         {
-            cell!.doneUI.setSelected(true, animated: true)
+            cell!.doneUI.setSelected(true, animated: false)
+            cell!.doneUI.enabled = false;
         }
         else
         {
-            cell!.doneUI.setSelected(false, animated: true)
+            cell!.doneUI.setSelected(false, animated: false)
+            cell!.doneUI.enabled = true;
         }
+        cell!.onDoneTapped = {
+            
+            self.dataContainer[data.type.hashValue].remove(data)
+            data.type = typeOfTodo.done
+            self.dataContainer[data.type.hashValue].append(data)
+            
+            self.updateDataWithDataClass(data)
+            self.tableView.reloadData()
+        }
+        
+        cell!.doneUI.addTarget(cell, action: "doneBtnPressed", forControlEvents: UIControlEvents.ValueChanged)
         
         return cell!
     }
@@ -161,25 +175,28 @@ class ViewController: UITableViewController {
                     dataContainer[data.type.hashValue].remove(data)
                     data.type = typeOfTodo.rawToType(info["newType"]!)
                     dataContainer[data.type.hashValue].append(data)
-                    
-                    
-                    var query = PFQuery(className:"ToDos")
-                    query.getObjectInBackgroundWithId(data.parseObject!.objectId!) {
-                        (todoObject: PFObject?, error: NSError?) -> Void in
-                        if error != nil {
-                            println(error)
-                        } else if let todoObject = todoObject {
-                            todoObject["title"] = data.title
-                            todoObject["type"] = data.type.rawValue
-                            todoObject.saveInBackground()
-                        }
-                    }
-                    
+                    updateDataWithDataClass(data)
                     self.tableView.reloadData()
                 }
             }
         }
         
+    }
+    
+    
+    func updateDataWithDataClass(data: TodoDataClass)
+    {
+        var query = PFQuery(className:"ToDos")
+        query.getObjectInBackgroundWithId(data.parseObject!.objectId!) {
+            (todoObject: PFObject?, error: NSError?) -> Void in
+            if error != nil {
+                println(error)
+            } else if let todoObject = todoObject {
+                todoObject["title"] = data.title
+                todoObject["type"] = data.type.rawValue
+                todoObject.saveInBackground()
+            }
+        }
     }
     
     func addObject(notification: NSNotification){

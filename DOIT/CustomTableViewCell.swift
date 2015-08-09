@@ -10,7 +10,16 @@ import Foundation
 import AIFlatSwitch
 
 class CustomTableViewCell : UITableViewCell {
+    var onDoneTapped : (() -> Void)? = nil
     
     @IBInspectable @IBOutlet var doneUI: AIFlatSwitch!
+    
+    func doneBtnPressed()
+    {
+        if let doneTap = onDoneTapped
+        {
+            doneTap()
+        }
+    }
     
 }
