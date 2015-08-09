@@ -8,7 +8,7 @@
         <!--DOIT App-->
         <scene sceneID="4aR-m9-3xi">
             <objects>
-                <tableViewController id="XyK-jE-IpZ" sceneMemberID="viewController">
+                <tableViewController id="XyK-jE-IpZ" customClass="ViewController" customModule="DOIT" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="M4a-Q8-hRJ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -26,9 +26,11 @@
                             <outlet property="delegate" destination="XyK-jE-IpZ" id="ksV-w9-s92"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="DOIT App" id="vsk-W8-YPY"/>
+                    <navigationItem key="navigationItem" title="DOIT App" id="vsk-W8-YPY">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="rgK-dv-M6F"/>
+                    </navigationItem>
                     <connections>
-                        <segue destination="P7v-lz-IUu" kind="show" identifier="todoList" id="6K8-7D-Pie"/>
+                        <segue destination="P7v-lz-IUu" kind="show" identifier="showTodoDetail" id="6K8-7D-Pie"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u1O-Pl-Exb" userLabel="First Responder" sceneMemberID="firstResponder"/>

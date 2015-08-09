@@ -8,11 +8,14 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        self.navigationItem.rightBarButtonItem?.target = self
+        self.navigationItem.rightBarButtonItem?.action = Selector("addBtnPressed")
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,6 +23,10 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    func addBtnPressed(){
+        let todoVC : TodoDetailViewController = self.storyboard!.instantiateViewControllerWithIdentifier("detail") as! TodoDetailViewController
+        self.navigationController!.pushViewController(todoVC, animated: true)
+    }
 
 }
 
