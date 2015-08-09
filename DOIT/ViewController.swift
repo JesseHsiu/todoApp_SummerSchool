@@ -26,8 +26,7 @@ class ViewController: UITableViewController {
     }
 
     func addBtnPressed(){
-        let todoVC : TodoDetailViewController = self.storyboard!.instantiateViewControllerWithIdentifier("detail") as! TodoDetailViewController
-        self.navigationController!.pushViewController(todoVC, animated: true)
+        self.performSegueWithIdentifier("showTodoDetail", sender: nil)
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -76,7 +75,23 @@ class ViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-
+        self.performSegueWithIdentifier("showTodoDetail", sender: dataContainer[indexPath.section][indexPath.row])
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if(segue.identifier == "showTodoDetail")
+        {
+            var vc : TodoDetailViewController = segue.destinationViewController
+            
+            if (sender != nil)//means show the data
+            {
+                
+            }
+            else{//means new data
+                
+            }
+        }
     }
 
 }
