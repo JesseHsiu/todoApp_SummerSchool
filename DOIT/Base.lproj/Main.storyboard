@@ -40,7 +40,7 @@
         <!--HelloWorld-->
         <scene sceneID="Dp7-wi-2Ha">
             <objects>
-                <viewController id="P7v-lz-IUu" customClass="TodoDetailViewController" customModule="DOIT" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="detail" id="P7v-lz-IUu" customClass="TodoDetailViewController" customModule="DOIT" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Vnr-55-ifS"/>
                         <viewControllerLayoutGuide type="bottom" id="0EQ-8E-I7t"/>
