@@ -62,7 +62,7 @@ class ViewController: UITableViewController {
                 let objectOfType = object as! PFObject
                 
                 var typeOfObject = typeOfTodo(rawValue: type)!.hashValue
-                dataContainer[typeOfObject].append(TodoDataClass(parse: objectOfType))
+                dataContainer[typeOfObject].append(TodoDataClass(parse: objectOfType, ready: true))
             }
         }
         
@@ -149,6 +149,16 @@ class ViewController: UITableViewController {
         
         cell!.doneUI.addTarget(cell, action: "doneBtnPressed", forControlEvents: UIControlEvents.ValueChanged)
         
+        
+        if data.ready == false
+        {
+            cell!.userInteractionEnabled = false
+        }
+        else
+        {
+            cell!.userInteractionEnabled = true
+        }
+        
         return cell!
     }
     
@@ -207,17 +217,22 @@ class ViewController: UITableViewController {
     
     func addObject(notification: NSNotification){
         
-        if let data = notification.object as? TodoDataClass
-        {
-            dataContainer[data.type.hashValue].append(data)
-            
-            let todoObject = PFObject(className: "ToDos")
-            todoObject["title"] = data.title
-            todoObject["type"] = data.type.rawValue
-            todoObject.saveInBackground()
-            
+        
+        
+        var data = notification.object as? TodoDataClass
+        
+        let todoObject = PFObject(className: "ToDos")
+        todoObject["title"] = data!.title
+        todoObject["type"] = data!.type.rawValue
+        
+        data = TodoDataClass(parse: todoObject, ready: false)
+        dataContainer[data!.type.hashValue].append(data!)
+        
+        todoObject.saveInBackgroundWithBlock { (bool, error) -> Void in
+            data?.ready = true
             self.tableView.reloadData()
         }
+        self.tableView.reloadData()
         
     }
 

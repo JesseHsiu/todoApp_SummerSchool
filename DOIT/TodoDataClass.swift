@@ -34,7 +34,7 @@ class TodoDataClass: NSObject {
     
     var title : String
     var type : typeOfTodo
-    var done = false
+    var ready = false
     var parseObject : PFObject?
     
     
@@ -45,11 +45,12 @@ class TodoDataClass: NSObject {
         
     }
     
-    init(parse: PFObject)
+    init(parse: PFObject, ready: Bool)
     {
         self.parseObject = parse
         self.title = parse["title"] as! String
         self.type = typeOfTodo(rawValue: parse["type"] as! String)!
+        self.ready = ready
     }
     
 }
