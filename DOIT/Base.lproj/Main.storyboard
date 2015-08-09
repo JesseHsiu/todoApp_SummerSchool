@@ -14,11 +14,37 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuse" id="bFQ-aH-7f1">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuse" id="bFQ-aH-7f1" customClass="CustomTableViewCell" customModule="DOIT" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bFQ-aH-7f1" id="x6V-Ob-c4p">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Mi-Tn-pSh" customClass="AIFlatSwitch" customModule="AIFlatSwitch">
+                                            <rect key="frame" x="543" y="4" width="49" height="35"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="49" id="Lpi-hZ-mSK"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="selected" value="NO"/>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="strokeColor">
+                                                    <color key="value" red="0.20932694585614664" green="0.99167560900505425" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="trailStrokeColor">
+                                                    <color key="value" red="0.382571478333119" green="0.64664824157427581" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="1Mi-Tn-pSh" firstAttribute="trailing" secondItem="x6V-Ob-c4p" secondAttribute="trailingMargin" id="PGh-FD-Jxx"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="1Mi-Tn-pSh" secondAttribute="bottom" constant="-4" id="Zag-YD-jeZ"/>
+                                        <constraint firstItem="1Mi-Tn-pSh" firstAttribute="top" secondItem="x6V-Ob-c4p" secondAttribute="topMargin" constant="-4" id="tFl-KQ-Ld0"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="doneUI" destination="1Mi-Tn-pSh" id="ndV-2E-eNB"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

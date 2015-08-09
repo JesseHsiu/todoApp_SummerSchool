@@ -21,6 +21,7 @@
 		565F20671B77BBED00E09E6D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 565F20661B77BBED00E09E6D /* SystemConfiguration.framework */; };
 		565F20691B77BBF500E09E6D /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 565F20681B77BBF500E09E6D /* libz.dylib */; };
 		565F206B1B77BBFF00E09E6D /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 565F206A1B77BBFF00E09E6D /* libsqlite3.dylib */; };
+		565F206D1B77C59000E09E6D /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565F206C1B77C59000E09E6D /* CustomTableViewCell.swift */; };
 		56BCA7BE1B77957000D4F85C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BCA7BD1B77957000D4F85C /* AppDelegate.swift */; };
 		56BCA7C01B77957000D4F85C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BCA7BF1B77957000D4F85C /* ViewController.swift */; };
 		56BCA7C31B77957000D4F85C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56BCA7C11B77957000D4F85C /* Main.storyboard */; };
@@ -69,6 +70,7 @@
 		565F20661B77BBED00E09E6D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		565F20681B77BBF500E09E6D /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		565F206A1B77BBFF00E09E6D /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		565F206C1B77C59000E09E6D /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		56BCA7B81B77957000D4F85C /* DOIT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DOIT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56BCA7BC1B77957000D4F85C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		56BCA7BD1B77957000D4F85C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 				56BCA7BD1B77957000D4F85C /* AppDelegate.swift */,
 				56BCA7BF1B77957000D4F85C /* ViewController.swift */,
 				56BCA7C11B77957000D4F85C /* Main.storyboard */,
+				565F206C1B77C59000E09E6D /* CustomTableViewCell.swift */,
 				565F204F1B77A35D00E09E6D /* TodoDetailViewController.swift */,
 				565F20511B77A5BA00E09E6D /* TodoDataClass.swift */,
 				56BCA7C41B77957000D4F85C /* Images.xcassets */,
@@ -402,6 +405,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				565F206D1B77C59000E09E6D /* CustomTableViewCell.swift in Sources */,
 				56BCA7ED1B7795AC00D4F85C /* Array.swift in Sources */,
 				565F20501B77A35D00E09E6D /* TodoDetailViewController.swift in Sources */,
 				56BCA7EE1B7795AC00D4F85C /* Bool.swift in Sources */,

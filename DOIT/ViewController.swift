@@ -108,16 +108,26 @@ class ViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        var cell: UITableViewCell? = tableView.dequeueReusableCellWithIdentifier("reuse") as? UITableViewCell
+        var cell: CustomTableViewCell? = tableView.dequeueReusableCellWithIdentifier("reuse") as? CustomTableViewCell
         
         if cell == nil
         {
-            cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "reuse")
+            cell = CustomTableViewCell()
         }
         
         var data = dataContainer[indexPath.section][indexPath.row] as TodoDataClass
         
         cell!.textLabel?.text = data.title
+        
+        
+        if(data.type == typeOfTodo.done)
+        {
+            cell!.doneUI.setSelected(true, animated: true)
+        }
+        else
+        {
+            cell!.doneUI.setSelected(false, animated: true)
+        }
         
         return cell!
     }
