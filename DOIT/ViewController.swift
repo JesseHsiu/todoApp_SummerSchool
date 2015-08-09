@@ -138,7 +138,13 @@ class ViewController: UITableViewController {
             self.dataContainer[data.type.hashValue].append(data)
             
             self.updateDataWithDataClass(data)
-            self.tableView.reloadData()
+            
+            let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(1 * Double(NSEC_PER_SEC)))
+            dispatch_after(delayTime, dispatch_get_main_queue()) {
+                self.tableView.reloadData()
+            }
+            
+            
         }
         
         cell!.doneUI.addTarget(cell, action: "doneBtnPressed", forControlEvents: UIControlEvents.ValueChanged)
