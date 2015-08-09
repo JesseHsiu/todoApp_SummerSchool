@@ -25,13 +25,12 @@ class ViewController: UITableViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("addObject:"), name: "addObject", object: nil)
         
         self.refreshControl!.addTarget(self, action: "refreshWithParse", forControlEvents: UIControlEvents.ValueChanged)
-        
+        refreshWithParse()
     }
     
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        refreshWithParse()
     }
 
     
@@ -162,11 +161,11 @@ class ViewController: UITableViewController {
                         } else if let todoObject = todoObject {
                             todoObject["title"] = data.title
                             todoObject["type"] = data.type.rawValue
-                            todoObject.saveInBackgroundWithBlock({ (succeeded, error) -> Void in
-                                self.tableView.reloadData()
-                            })
+                            todoObject.saveInBackground()
                         }
                     }
+                    
+                    self.tableView.reloadData()
                 }
             }
         }
@@ -182,9 +181,9 @@ class ViewController: UITableViewController {
             let todoObject = PFObject(className: "ToDos")
             todoObject["title"] = data.title
             todoObject["type"] = data.type.rawValue
-            todoObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
-                self.tableView.reloadData()
-            }
+            todoObject.saveInBackground()
+            
+            self.tableView.reloadData()
         }
         
     }
