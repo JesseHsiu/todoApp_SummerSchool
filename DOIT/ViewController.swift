@@ -84,12 +84,10 @@ class ViewController: UITableViewController {
         {
             var vc = segue.destinationViewController as! TodoDetailViewController
             
-            if (sender != nil)//means show the data
+            
+            if let data = sender as? TodoDataClass
             {
-                
-            }
-            else{//means new data
-                
+                vc.dataToshow = data
             }
         }
     }
