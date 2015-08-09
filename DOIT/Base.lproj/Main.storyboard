@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="PVd-lb-Cqd">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--DOIT App-->
@@ -45,7 +46,31 @@
                     <view key="view" contentMode="scaleToFill" id="r8z-4l-SMw">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gbl-SX-j4V">
+                                <rect key="frame" x="16" y="95" width="568" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="5dj-JC-XTH">
+                                <rect key="frame" x="16" y="153" width="568" height="29"/>
+                                <segments>
+                                    <segment title="Urgent"/>
+                                    <segment title="Normal"/>
+                                    <segment title="Causual"/>
+                                    <segment title="Done"/>
+                                </segments>
+                            </segmentedControl>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5dj-JC-XTH" firstAttribute="trailing" secondItem="r8z-4l-SMw" secondAttribute="trailingMargin" id="K6A-LH-RHR"/>
+                            <constraint firstItem="5dj-JC-XTH" firstAttribute="leading" secondItem="r8z-4l-SMw" secondAttribute="leadingMargin" id="WWh-w0-vdp"/>
+                            <constraint firstItem="Gbl-SX-j4V" firstAttribute="leading" secondItem="r8z-4l-SMw" secondAttribute="leadingMargin" id="cVw-OH-DLe"/>
+                            <constraint firstItem="Gbl-SX-j4V" firstAttribute="top" secondItem="Vnr-55-ifS" secondAttribute="bottom" constant="31" id="gtW-dA-qJV"/>
+                            <constraint firstItem="Gbl-SX-j4V" firstAttribute="trailing" secondItem="r8z-4l-SMw" secondAttribute="trailingMargin" id="jQt-hl-Sqt"/>
+                            <constraint firstItem="5dj-JC-XTH" firstAttribute="top" secondItem="Gbl-SX-j4V" secondAttribute="bottom" constant="28" id="ogc-wu-yCG"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="HelloWorld" id="5Jf-cb-8W3"/>
                 </viewController>
