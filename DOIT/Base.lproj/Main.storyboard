@@ -75,6 +75,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="HelloWorld" id="5Jf-cb-8W3"/>
+                    <connections>
+                        <outlet property="todoTitle" destination="Gbl-SX-j4V" id="xKR-AS-Co7"/>
+                        <outlet property="todoTypeSeg" destination="5dj-JC-XTH" id="81K-WL-0Gy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ynz-zw-JRb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
