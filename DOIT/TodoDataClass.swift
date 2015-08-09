@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Parse
 
 enum typeOfTodo : String
 {
@@ -34,6 +35,7 @@ class TodoDataClass: NSObject {
     var title : String
     var type : typeOfTodo
     var done = false
+    var parseObject : PFObject?
     
     
     init(title : String , type: typeOfTodo)
@@ -41,6 +43,13 @@ class TodoDataClass: NSObject {
         self.title = title
         self.type = type
         
+    }
+    
+    init(parse: PFObject)
+    {
+        self.parseObject = parse
+        self.title = parse["title"] as! String
+        self.type = typeOfTodo(rawValue: parse["type"] as! String)!
     }
     
 }
