@@ -1,0 +1,10 @@
+PODS:
+  - AIFlatSwitch (0.0.2)
+
+DEPENDENCIES:
+  - AIFlatSwitch (~> 0.0.1)
+
+SPEC CHECKSUMS:
+  AIFlatSwitch: 0a4fcc19d46bcc510c9da23ab46e4636442290ce
+
+COCOAPODS: 0.38.2
