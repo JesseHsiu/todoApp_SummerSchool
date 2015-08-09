@@ -44,26 +44,13 @@ class TodoDetailViewController: UIViewController{
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         
-        var currentType : typeOfTodo!
-        switch todoTypeSeg.selectedSegmentIndex
-        {
-        case 0:
-            currentType = typeOfTodo.urgent
-        case 1:
-            currentType = typeOfTodo.normal
-        case 2:
-            currentType = typeOfTodo.casual
-        default:
-            break
-        }
-        
-        
+        var currentType = typeOfTodo.rawToType(todoTypeSeg.selectedSegmentIndex)
         
         if let data = dataToshow as TodoDataClass!
         {
+            var newSelect = ["newType" : currentType.hashValue]
             data.title = todoTitle.text
-            data.type = currentType
-            NSNotificationCenter.defaultCenter().postNotificationName("modifyObject", object: data)
+            NSNotificationCenter.defaultCenter().postNotificationName("modifyObject", object: data, userInfo: newSelect)
         }
         else
         {

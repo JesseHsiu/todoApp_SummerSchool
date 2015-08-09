@@ -15,6 +15,17 @@ enum typeOfTodo : String
     case casual = "Casual"
     case done = "Done"
     
+    static func rawToType(value: Int) -> typeOfTodo {
+        
+        switch value {
+        case 0: return .urgent
+        case 1: return .normal
+        case 2: return .casual
+        case 3: return .done
+        default: return .done
+        }
+    }
+    
 }
 
 

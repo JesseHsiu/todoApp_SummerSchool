@@ -18,6 +18,10 @@ class ViewController: UITableViewController {
         
         self.navigationItem.rightBarButtonItem?.target = self
         self.navigationItem.rightBarButtonItem?.action = Selector("addBtnPressed")
+        
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("modifyObject:"), name: "modifyObject", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("addObject:"), name: "addObject", object: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -90,6 +94,35 @@ class ViewController: UITableViewController {
                 vc.dataToshow = data
             }
         }
+    }
+    
+    func modifyObject(notification: NSNotification){
+        
+        if let data = notification.object as? TodoDataClass
+        {
+            if let info = notification.userInfo as? Dictionary<String,Int> {
+                
+                if( data.type != typeOfTodo.rawToType(info["newType"]!) )
+                {
+                    dataContainer[data.type.hashValue].remove(data)
+                    data.type = typeOfTodo.rawToType(info["newType"]!)
+                    dataContainer[data.type.hashValue].append(data)
+                    
+                    self.tableView.reloadData()
+                }
+            }
+        }
+        
+    }
+    
+    func addObject(notification: NSNotification){
+        
+        if let data = notification.object as? TodoDataClass
+        {
+            dataContainer[data.type.hashValue].append(data)
+            self.tableView.reloadData()
+        }
+        
     }
 
 }
