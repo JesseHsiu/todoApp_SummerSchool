@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class ViewController: UITableViewController {
 
@@ -108,7 +109,20 @@ class ViewController: UITableViewController {
                     data.type = typeOfTodo.rawToType(info["newType"]!)
                     dataContainer[data.type.hashValue].append(data)
                     
-                    self.tableView.reloadData()
+                    
+                    var query = PFQuery(className:"ToDos")
+                    query.getObjectInBackgroundWithId(data.parseObject!.objectId!) {
+                        (todoObject: PFObject?, error: NSError?) -> Void in
+                        if error != nil {
+                            println(error)
+                        } else if let todoObject = todoObject {
+                            todoObject["title"] = data.title
+                            todoObject["type"] = data.type.rawValue
+                            todoObject.saveInBackgroundWithBlock({ (succeeded, error) -> Void in
+                                self.tableView.reloadData()
+                            })
+                        }
+                    }
                 }
             }
         }
@@ -120,7 +134,13 @@ class ViewController: UITableViewController {
         if let data = notification.object as? TodoDataClass
         {
             dataContainer[data.type.hashValue].append(data)
-            self.tableView.reloadData()
+            
+            let todoObject = PFObject(className: "ToDos")
+            todoObject["title"] = data.title
+            todoObject["type"] = data.type.rawValue
+            todoObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+                self.tableView.reloadData()
+            }
         }
         
     }
