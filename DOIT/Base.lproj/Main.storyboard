@@ -29,6 +29,9 @@
                     <navigationItem key="navigationItem" title="DOIT App" id="vsk-W8-YPY">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="rgK-dv-M6F"/>
                     </navigationItem>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="on6-Yd-Dhh">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </refreshControl>
                     <connections>
                         <segue destination="P7v-lz-IUu" kind="show" identifier="showTodoDetail" id="6K8-7D-Pie"/>
                     </connections>

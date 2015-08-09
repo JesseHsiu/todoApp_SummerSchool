@@ -23,8 +23,52 @@ class ViewController: UITableViewController {
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("modifyObject:"), name: "modifyObject", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("addObject:"), name: "addObject", object: nil)
+        
+        self.refreshControl!.addTarget(self, action: "refreshWithParse", forControlEvents: UIControlEvents.ValueChanged)
+        
+    }
+    
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        refreshWithParse()
     }
 
+    
+    func refreshWithParse()
+    {
+        var query = PFQuery(className:"ToDos")
+        query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]?, error: NSError?) -> Void in
+            if let error = error {
+                // There was an error
+            } else {
+                self.updateDataContainer(objects)
+                self.refreshControl!.endRefreshing()
+                self.tableView.reloadData()
+                // objects has all the Posts the current user liked.
+            }
+        }
+    }
+    
+    func updateDataContainer(objects: [AnyObject]?)
+    {
+        dataContainer = Array(count:4, repeatedValue:[TodoDataClass]())
+        if(objects != nil)
+        {
+            for object in objects!
+            {
+                
+                let type = object["type"] as! String
+                let objectOfType = object as! PFObject
+                
+                var typeOfObject = typeOfTodo(rawValue: type)!.hashValue
+                dataContainer[typeOfObject].append(TodoDataClass(parse: objectOfType))
+            }
+        }
+        
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
