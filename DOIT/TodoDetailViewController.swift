@@ -35,7 +35,7 @@ class TodoDetailViewController: UIViewController{
                 todoTypeSeg.selectedSegmentIndex = 2
                 
             case .done:
-                todoTypeSeg.selectedSegmentIndex = 4
+                todoTypeSeg.selectedSegmentIndex = 3
             }
         }
     }
