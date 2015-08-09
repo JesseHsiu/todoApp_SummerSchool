@@ -82,7 +82,7 @@ class ViewController: UITableViewController {
         
         if(segue.identifier == "showTodoDetail")
         {
-            var vc : TodoDetailViewController = segue.destinationViewController
+            var vc = segue.destinationViewController as! TodoDetailViewController
             
             if (sender != nil)//means show the data
             {
