@@ -13,7 +13,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="bFQ-aH-7f1">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuse" id="bFQ-aH-7f1">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bFQ-aH-7f1" id="x6V-Ob-c4p">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -26,10 +26,32 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="DOIT App" id="vsk-W8-YPY"/>
+                    <connections>
+                        <segue destination="P7v-lz-IUu" kind="show" identifier="todoList" id="6K8-7D-Pie"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u1O-Pl-Exb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1163" y="467"/>
+        </scene>
+        <!--HelloWorld-->
+        <scene sceneID="Dp7-wi-2Ha">
+            <objects>
+                <viewController id="P7v-lz-IUu" customClass="TodoDetailViewController" customModule="DOIT" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Vnr-55-ifS"/>
+                        <viewControllerLayoutGuide type="bottom" id="0EQ-8E-I7t"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="r8z-4l-SMw">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="HelloWorld" id="5Jf-cb-8W3"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ynz-zw-JRb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1867" y="467"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="MCh-JD-3dH">

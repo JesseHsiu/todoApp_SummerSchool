@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		565F20501B77A35D00E09E6D /* TodoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565F204F1B77A35D00E09E6D /* TodoDetailViewController.swift */; };
 		56BCA7BE1B77957000D4F85C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BCA7BD1B77957000D4F85C /* AppDelegate.swift */; };
 		56BCA7C01B77957000D4F85C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BCA7BF1B77957000D4F85C /* ViewController.swift */; };
 		56BCA7C31B77957000D4F85C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56BCA7C11B77957000D4F85C /* Main.storyboard */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		565F204F1B77A35D00E09E6D /* TodoDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoDetailViewController.swift; sourceTree = "<group>"; };
 		56BCA7B81B77957000D4F85C /* DOIT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DOIT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56BCA7BC1B77957000D4F85C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		56BCA7BD1B77957000D4F85C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				56BCA7BD1B77957000D4F85C /* AppDelegate.swift */,
 				56BCA7BF1B77957000D4F85C /* ViewController.swift */,
 				56BCA7C11B77957000D4F85C /* Main.storyboard */,
+				565F204F1B77A35D00E09E6D /* TodoDetailViewController.swift */,
 				56BCA7C41B77957000D4F85C /* Images.xcassets */,
 				56BCA7C61B77957000D4F85C /* LaunchScreen.xib */,
 				56BCA7BB1B77957000D4F85C /* Supporting Files */,
@@ -341,6 +344,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				56BCA7ED1B7795AC00D4F85C /* Array.swift in Sources */,
+				565F20501B77A35D00E09E6D /* TodoDetailViewController.swift in Sources */,
 				56BCA7EE1B7795AC00D4F85C /* Bool.swift in Sources */,
 				56BCA7F91B7795AC00D4F85C /* Sequence.swift in Sources */,
 				56BCA7F81B7795AC00D4F85C /* Range.swift in Sources */,
